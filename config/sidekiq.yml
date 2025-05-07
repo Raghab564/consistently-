@@ -1,0 +1,6 @@
+:concurrency: 5
+:scheduler:
+  :schedule:
+    weekly_summary:
+      cron: '0 0 * * 0'
+      class: WeeklySummaryJob

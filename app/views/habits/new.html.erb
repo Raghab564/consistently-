@@ -1,0 +1,7 @@
+<div class="max-w-lg mx-auto py-8">
+  <h1 class="text-3xl font-semibold mb-6 text-center">New Habit</h1>
+  <%= render "form", habit: @habit %>
+  <div class="mt-4 text-center">
+    <%= link_to "Back", habits_path, class: "text-blue-500 hover:underline" %>
+  </div>
+</div>

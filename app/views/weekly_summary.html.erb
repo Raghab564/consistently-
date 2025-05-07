@@ -1,0 +1,6 @@
+<h1>Hi <%= @user.email %>, here’s your weekly summary!</h1>
+<ul>
+  <% @habits.each do |habit| %>
+    <li><%= habit.name %>: <%= habit.streak_count %> days streak</li>
+  <% end %>
+</ul>

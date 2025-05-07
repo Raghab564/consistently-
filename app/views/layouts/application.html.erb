@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Consistently" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-semibold text-gray-800">
+          <%= link_to "Consistently", root_path, class: "hover:underline" %>
+        </h1>
+        <nav class="space-x-4">
+          <% if user_signed_in? %>
+            <%= link_to "My Habits", habits_path, class: "text-gray-700 hover:text-blue-600 font-medium" %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-red-600 hover:text-red-800 font-medium" %>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path, class: "text-gray-700 hover:text-blue-600 font-medium" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium" %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Flash Messages -->
+    <div class="max-w-3xl mx-auto mt-4 px-4">
+      <% if notice %>
+        <div class="bg-green-100 text-green-800 p-3 rounded mb-2"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="bg-red-100 text-red-800 p-3 rounded mb-2"><%= alert %></div>
+      <% end %>
+    </div>
+
+    <!-- Page Content -->
+    <main class="max-w-3xl mx-auto px-4 mt-6">
+      <%= yield %>
+    </main>
+  </body>
+</html>

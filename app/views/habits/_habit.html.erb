@@ -1,0 +1,7 @@
+<div id="habit_<%= habit.id %>_streak">
+  <%= habit.name %> — <%= habit.streak_count %> days streak
+
+  <%= button_to 'Mark Today Done', update_streak_habit_path(habit), 
+        method: :post, 
+        data: { turbo_stream: true } %>
+</div>
