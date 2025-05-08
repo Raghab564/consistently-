@@ -42,7 +42,7 @@ gem "thruster", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug",require: "debug/prelude"
+  gem "debug", require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -62,9 +62,9 @@ group :test do
   gem "selenium-webdriver"
 end
 group :development do
-  gem 'letter_opener'
+  gem "letter_opener"
 end
 
 gem "devise", "~> 4.9"
-gem 'sidekiq-scheduler'
-gem 'hotwire-rails'
+gem "sidekiq-scheduler"
+gem "hotwire-rails"

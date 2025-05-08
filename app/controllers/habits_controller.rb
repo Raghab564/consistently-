@@ -55,13 +55,13 @@ class HabitsController < ApplicationController
   def update_streak
     @habit = Habit.find(params[:id])
     @habit.increment!(:streak_count)
-  
+
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_to habits_path }
     end
   end
-  
+
 
   private
 

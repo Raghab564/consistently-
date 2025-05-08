@@ -32,7 +32,7 @@ class Habit < ApplicationRecord
     dates.each_cons(2) do |a, b|
       if b == a + 1
         current += 1
-        longest = [longest, current].max
+        longest = [ longest, current ].max
       else
         current = 1
       end
@@ -50,5 +50,3 @@ class Habit < ApplicationRecord
     ((done_days.to_f / total_days) * 100).round(1)
   end
 end
-
-
